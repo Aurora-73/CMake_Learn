@@ -14,7 +14,7 @@
     cmake -G "<生成器>" S <源目录> B <构建目录> 使用指定的生成器
     
 可选参数：
-  j N：并行编译（N 为 CPU 核心数）。
+  -j N：并行编译（N 为 CPU 核心数）。
   target <目标名>：编译指定目标（如 all、clean）。
     
 
@@ -87,4 +87,8 @@
   变量传递：通过 DVAR=value 传递变量（如 DCMAKE_CXX_STANDARD=17）。
   依赖管理：使用 find_package 查找外部依赖库（如 find_package(fmt REQUIRED)）。
 
+  export LD_LIBRARY_PATH=<路径> 在运行时指定动态链接库的搜索路径。
+  ldd <可执行文件> 查看可执行文件依赖的动态链接库。
 
+  单行注释 #
+  多行注释 #[[ 注释内容 ]]

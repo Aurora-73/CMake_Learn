@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(xlog_test)
 
-include_directories(./xlog) # 添加头文件目录
+include_directories(./xlog)
 
 add_library(xlog SHARED xlog/xlog.cpp)
 
