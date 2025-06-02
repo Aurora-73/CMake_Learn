@@ -2,6 +2,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(variable)
+project(variable VERSION 1.0)
 
 message("")
 
@@ -34,6 +35,8 @@ message("")
 
 message("BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
 message("PROJECT_NAME: ${PROJECT_NAME}")
+message("PROJECT_VERSION_MAJOR: ${PROJECT_VERSION_MAJOR}")
+message("PROJECT_VERSION_MINOR: ${PROJECT_VERSION_MINOR}")
 message("CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 message("UNIX: ${UNIX}")
 message("WIN32: ${WIN32}")
