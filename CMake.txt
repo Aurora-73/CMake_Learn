@@ -111,6 +111,30 @@
     message(CHECK_START "Checking for fmt library")
     message(CHECK_PASS "Found fmt library: ${fmt_LIBRARIES}")
     message(CHECK_FAIL "Could not find fmt library")
+
   设置嵌套消息缩进
     set(CMAKE_MESSAGE_INDENT "  ")  # 设置缩进为2个空格
     set(CMAKE_MESSAGE_INDENT "--")  # 设置缩进为 --
+
+  颜色设置
+    string(ASCII 27 ESCAPE)
+    set(COLOR_RED "${ESCAPE}[31m")
+    message("${COLOR_RED}This is red text${COLOR_END}")
+  
+
+9.变量 (本质上都是字符串)
+  CMake 中的变量可以通过 set() 命令定义和修改，通过unset() 删除。
+  变量可以是全局的或缓存的，缓存变量在 CMake GUI 或 ccmake 中可见。
+    set(VAR_NAME "value")  
+      定义一个变量 VAR_NAME，其值为 "value"。
+    set(VAR_NAME "new_value" CACHE STRING "描述信息")  
+      修改变量 VAR_NAME 的值，并将其存储在缓存中。缓存文件如果不删除，下次运行 CMake 时可以自动读取和复用这些变量的值。
+  获取变量值 ${VAR_NAME}，可以嵌套使用，未设置的变量为空字符串。
+  CMake内置变量
+    CMAKE_SOURCE_DIR：项目的源代码目录。
+    CMAKE_BINARY_DIR：构建目录。
+    CMAKE_CURRENT_SOURCE_DIR：当前处理的源代码目录。
+    CMAKE_CURRENT_BINARY_DIR：当前处理的构建目录。
+    CMAKE_CXX_COMPILER：C++ 编译器路径。
+    CMAKE_BUILD_TYPE：当前构建类型（如 Debug、Release）。
+    CMAKE_INSTALL_PREFIX：安装路径。
