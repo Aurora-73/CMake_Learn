@@ -92,3 +92,25 @@
 
   单行注释 #
   多行注释 #[[ 注释内容 ]]
+
+8. 日志输出
+  日志格式 message(<日志级别> <消息内容>)
+  日志级别：
+    FATAL_ERROR ：致命错误，终止配置 
+    SEND_ERROR : cmake 继续运行，但是跳过生成
+    WARNING ：警告信息
+    NOTICE ：通知信息 (默认)
+    STATUS ：普通信息
+    # 下面的默认不会显示
+    VERBOSE ：详细信息
+    DEBUG ：调试信息
+    TRACE ：跟踪信息
+  指定显示的日志级别：(cmake ..) --log-level=<级别>
+
+  查找外部依赖库提示
+    message(CHECK_START "Checking for fmt library")
+    message(CHECK_PASS "Found fmt library: ${fmt_LIBRARIES}")
+    message(CHECK_FAIL "Could not find fmt library")
+  设置嵌套消息缩进
+    set(CMAKE_MESSAGE_INDENT "  ")  # 设置缩进为2个空格
+    set(CMAKE_MESSAGE_INDENT "--")  # 设置缩进为 --

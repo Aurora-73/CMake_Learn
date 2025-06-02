@@ -1,3 +1,4 @@
+# 编译动态链接库
 cmake_minimum_required(VERSION 3.10)
 
 project(xlog_test)
