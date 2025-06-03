@@ -1,5 +1,5 @@
-// the configured options and settings for Tutorial
-// TODO 10: Define Tutorial_VERSION_MAJOR and Tutorial_VERSION_MINOR
-#define Tutorial_VERSION_MAJOR ${Tutorial_VERSION_MAJOR}
-#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
-#define MY_STR "@MY_STR@"
+// Tutorial 的配置选项和设置
+// TODO 10: 定义 Tutorial_VERSION_MAJOR 和 Tutorial_VERSION_MINOR
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR ${Tutorial_VERSION_MINOR}
+

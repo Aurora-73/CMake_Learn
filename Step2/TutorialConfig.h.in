@@ -1,13 +1,13 @@
-// the configured options and settings for Tutorial
+// Tutorial 的配置选项和设置
 #define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
 #define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
 
-// cmakedefine
+// cmakedefine 测试
 #cmakedefine Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
 #cmakedefine Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
 
-// 1. 对于非0值和真bool值，cmakedefine 会定义宏
-//    对于0值和假bool值，cmakedefine 不会定义宏，define 正常定义宏
-//    对于未定义的变量，cmakedefine 不会定义宏
+// 对于非0值和真bool值，cmakedefine 会定义宏
+// 对于0值和假bool值，cmakedefine 不会定义宏，define 正常定义宏
+// 对于未定义的变量，cmakedefine 不会定义宏
 
 #cmakedefine USE_MYMATH

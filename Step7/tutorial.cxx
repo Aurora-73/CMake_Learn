@@ -3,8 +3,12 @@
 #include <iostream>
 #include <string>
 
-#include "MathFunctions.h"
 #include "TutorialConfig.h"
+
+// should we include the MathFunctions header?
+#ifdef USE_MYMATH
+#  include "MathFunctions.h"
+#endif
 
 int main(int argc, char* argv[])
 {
@@ -17,9 +21,14 @@ int main(int argc, char* argv[])
   }
 
   // convert input to double
-  double const inputValue = std::stod(argv[1]);
+  const double inputValue = std::stod(argv[1]);
 
-  double const outputValue = mathfunctions::sqrt(inputValue);
+  // which square root function should we use?
+#ifdef USE_MYMATH
+  const double outputValue = mysqrt(inputValue);
+#else
+  const double outputValue = sqrt(inputValue);
+#endif
 
   std::cout << "The square root of " << inputValue << " is " << outputValue
             << std::endl;
