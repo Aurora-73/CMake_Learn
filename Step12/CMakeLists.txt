@@ -42,14 +42,14 @@ target_link_libraries(Tutorial PUBLIC MathFunctions tutorial_compiler_flags)
 # add the binary tree to the search path for include files
 # so that we will find TutorialConfig.h
 target_include_directories(Tutorial PUBLIC
-                           "${PROJECT_BINARY_DIR}"
-                           )
+  "${PROJECT_BINARY_DIR}"
+)
 
 # add the install targets
 install(TARGETS Tutorial DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h"
   DESTINATION include
-  )
+)
 
 # enable testing
 enable_testing()
@@ -61,14 +61,14 @@ add_test(NAME Runs COMMAND Tutorial 25)
 add_test(NAME Usage COMMAND Tutorial)
 set_tests_properties(Usage
   PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number"
-  )
+)
 
 # define a function to simplify adding tests
 function(do_test target arg result)
   add_test(NAME Comp${arg} COMMAND ${target} ${arg})
   set_tests_properties(Comp${arg}
     PROPERTIES PASS_REGULAR_EXPRESSION ${result}
-    )
+  )
 endfunction()
 
 # do a bunch of result based tests
@@ -96,13 +96,15 @@ install(EXPORT MathFunctionsTargets
 )
 
 include(CMakePackageConfigHelpers)
+
 # generate the config file that includes the exports
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
   "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfig.cmake"
   INSTALL_DESTINATION "lib/cmake/MathFunctions"
   NO_SET_AND_CHECK_MACRO
   NO_CHECK_REQUIRED_COMPONENTS_MACRO
-  )
+)
+
 # generate the version file for the config file
 write_basic_package_version_file(
   "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfigVersion.cmake"
@@ -115,7 +117,7 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfig.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfigVersion.cmake
   DESTINATION lib/cmake/MathFunctions
-  )
+)
 
 # generate the export targets for the build tree
 # needs to be after the install(TARGETS) command
